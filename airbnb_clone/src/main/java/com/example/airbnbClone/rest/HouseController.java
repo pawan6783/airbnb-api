@@ -19,11 +19,6 @@ public class HouseController {
 	
 	private HouseService houseService;
 	
-	@GetMapping("/test")
-	public String test() {
-		return "test";
-	}
-	
 	/*@Autowired
 	public HouseController(HouseService houseService) {
 		super();
