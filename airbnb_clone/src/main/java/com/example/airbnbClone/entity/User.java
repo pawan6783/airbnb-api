@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "user")
@@ -18,65 +19,46 @@ public class User {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "first_name")
-	private String firstName;
-	
-	@Column(name = "last_name")
-	private String lastName;
-	
-	@Column(name = "email")
-	private String email;
-	
-	@Column(name = "dob")
-	private String dob;
+	@Column(name = "username")
+	private String userName;
 	
 	@Column(name = "password")
 	private String password;
 	
+	@Column(name = "active")
+	private boolean active;
+	
+	@Column(name = "roles")
+	private String roles;
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String firstName, String lastName, String email, String dob, String password) {
+	public User(int id, String email, String password, boolean active, String roles) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.dob = dob;
+		this.id = id;
+		this.userName = email;
 		this.password = password;
+		this.active = active;
+		this.roles = roles;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public int getId() {
+		return id;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -87,10 +69,27 @@ public class User {
 		this.password = password;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
 	@Override
 	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", dob=" + dob
-				+ ", password=" + password + "]";
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", active=" + active + ", roles="
+				+ roles + "]";
 	}
 	
+		
 }
