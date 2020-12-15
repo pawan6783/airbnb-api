@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.example.airbnbClone.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Integer>{
-	Optional<User> findByUserName(String userName);
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+  Optional<User> findByUsername(String username);
+
+  Boolean existsByUsername(String username);
+
+  Boolean existsByEmail(String email);
 }
